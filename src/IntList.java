@@ -1,13 +1,22 @@
+/**
+ * A simple linked list implementation for integers.
+ */
 public class IntList {
 
     private Node head;
     private int size;
 
+    /**
+     * Constructs an empty list.
+     */
     public IntList() {
         this.head = null;
         size = 0;
     }
 
+    /**
+     * A node in the linked list.
+     */
     private class Node {
         int value;
         Node next;
@@ -18,6 +27,11 @@ public class IntList {
         }
     }
 
+    /**
+     * Adds a new integer to the end of the list.
+     *
+     * @param value The integer to add.
+     */
     public void add(int value) {
         Node newNode = new Node(value);
         if (head == null) {
@@ -32,6 +46,13 @@ public class IntList {
         size++;
     }
 
+    /**
+     * Returns the integer at the specified position in the list.
+     *
+     * @param index The index of the integer to return.
+     * @return The integer at the specified position in the list.
+     * @throws IndexOutOfBoundsException If the index is out of range.
+     */
     public int get(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
@@ -43,6 +64,12 @@ public class IntList {
         return current.value;
     }
 
+    /**
+     * Removes the integer at the specified position in the list.
+     *
+     * @param index The index of the integer to remove.
+     * @throws IndexOutOfBoundsException If the index is out of range.
+     */
     public void remove(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
@@ -59,10 +86,18 @@ public class IntList {
         size--;
     }
 
+    /**
+     * Returns the number of integers in the list.
+     *
+     * @return The number of integers in the list.
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * Prints the integers in the list to the console.
+     */
     public void print() {
         Node current = head;
         while (current != null) {
